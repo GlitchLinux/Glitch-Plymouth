@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=gLiTcH Convergence
+Description=gLiTcH Linux cinematic boot - emergence, escalation, climax, blackout
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/glitch-convergence
+ScriptFile=/usr/share/plymouth/themes/glitch-convergence/glitch-convergence.script

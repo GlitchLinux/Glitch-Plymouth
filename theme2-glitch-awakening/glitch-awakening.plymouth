@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=gLiTcH Awakening
+Description=gLiTcH Linux boot animation - glitch effects with RGB split, horizontal tears, and digital artifacts
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/glitch-awakening
+ScriptFile=/usr/share/plymouth/themes/glitch-awakening/glitch-awakening.script

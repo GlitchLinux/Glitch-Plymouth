@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=gLiTcH Emergence
+Description=gLiTcH Linux boot animation - mascot emerges from darkness with subtle scanlines
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/glitch-emergence
+ScriptFile=/usr/share/plymouth/themes/glitch-emergence/glitch-emergence.script

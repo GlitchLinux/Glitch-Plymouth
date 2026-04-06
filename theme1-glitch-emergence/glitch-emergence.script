@@ -1,0 +1,64 @@
+# gLiTcH Linux Plymouth Theme: "Emergence"
+# Smooth fade-in from darkness with CRT scanlines
+
+# Screen dimensions
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# Load animation frames
+frame_count = 81;
+frames = [];
+for (i = 0; i < frame_count; i++) {
+    if (i < 10)
+        frames[i] = Image("frame-000" + i + ".png");
+    else
+        frames[i] = Image("frame-00" + i + ".png");
+}
+
+# Scale frames to screen
+for (i = 0; i < frame_count; i++) {
+    frames[i] = frames[i].Scale(screen_width, screen_height);
+}
+
+# Create sprite
+anim_sprite = Sprite();
+anim_sprite.SetX(0);
+anim_sprite.SetY(0);
+anim_sprite.SetZ(10);
+
+# Animation state
+global.current_frame = 0;
+global.frame_hold = 0;
+
+# Refresh callback
+fun refresh_callback() {
+    if (global.current_frame < frame_count - 1) {
+        global.current_frame++;
+    }
+    anim_sprite.SetImage(frames[global.current_frame]);
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+# Boot progress (optional: tie to actual boot)
+fun boot_progress_callback(duration, progress) {
+    # Map boot progress to frame position
+    target_frame = Math.Int(progress * (frame_count - 1));
+    if (target_frame > global.current_frame)
+        global.current_frame = target_frame;
+}
+
+Plymouth.SetBootProgressFunction(boot_progress_callback);
+
+# Password prompt support
+fun display_password_callback(prompt, bullets) {
+    # Keep animation visible during password entry
+    anim_sprite.SetOpacity(0.6);
+}
+
+# Hide splash when done
+fun quit_callback() {
+    anim_sprite.SetOpacity(0);
+}
+
+Plymouth.SetQuitFunction(quit_callback);

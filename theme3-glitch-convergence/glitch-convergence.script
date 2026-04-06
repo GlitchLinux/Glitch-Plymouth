@@ -1,0 +1,54 @@
+# gLiTcH Linux Plymouth Theme: "Convergence"
+# Cinematic 4-act boot animation
+# ACT 1: Emergence from darkness
+# ACT 2: Escalation with growing glitches
+# ACT 3: Climax — maximum intensity
+# ACT 4: Blackout — power cut, ghost scanlines fade
+
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+frame_count = 320;
+frames = [];
+for (i = 0; i < frame_count; i++) {
+    if (i < 10)
+        frames[i] = Image("frame-000" + i + ".png");
+    else if (i < 100)
+        frames[i] = Image("frame-00" + i + ".png");
+    else
+        frames[i] = Image("frame-0" + i + ".png");
+}
+
+for (i = 0; i < frame_count; i++) {
+    frames[i] = frames[i].Scale(screen_width, screen_height);
+}
+
+anim_sprite = Sprite();
+anim_sprite.SetX(0);
+anim_sprite.SetY(0);
+anim_sprite.SetZ(10);
+
+global.current_frame = 0;
+
+fun refresh_callback() {
+    if (global.current_frame < frame_count - 1) {
+        global.current_frame++;
+    }
+    anim_sprite.SetImage(frames[global.current_frame]);
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+fun boot_progress_callback(duration, progress) {
+    target_frame = Math.Int(progress * (frame_count - 1));
+    if (target_frame > global.current_frame)
+        global.current_frame = target_frame;
+}
+
+Plymouth.SetBootProgressFunction(boot_progress_callback);
+
+fun quit_callback() {
+    anim_sprite.SetOpacity(0);
+}
+
+Plymouth.SetQuitFunction(quit_callback);
