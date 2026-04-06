@@ -1,6 +1,6 @@
-# gLiTcH Plymouth Boot Animations
+# Glitch Linux Plymouth Boot Animations
 
-Custom Plymouth boot themes for [gLiTcH Linux](https://glitchlinux.wtf) — a KDE-based Debian Trixie derivative.
+Custom Plymouth boot themes for [gLiTcH Linux](https://glitchlinux.com) - a KDE-based Debian Trixie derivative.
 
 Three cinematic boot animations featuring the gLiTcH mascot emerging from darkness with CRT scanlines, RGB-split, and glitch effects.
 
@@ -9,8 +9,7 @@ Three cinematic boot animations featuring the gLiTcH mascot emerging from darkne
 ## Themes
 
 ### 1. Emergence
-Elegant, minimal. The mascot slowly materializes from pure darkness with subtle CRT scanlines.
-
+Elegant, minimalist. The Elegant mascot slowly materializes out of pure darkness with subtle CRT scan lines.
 **81 frames** — ~4 seconds
 
 ![Emergence](preview-emergence.gif)
@@ -50,7 +49,7 @@ The installer will:
 2. Verify kernel parameters (`splash` in GRUB, no `nomodeset`)
 3. Prompt you to choose a theme
 4. Copy frames, set as default, and rebuild initramfs
-
+  
 ### Manual install
 
 ```bash
