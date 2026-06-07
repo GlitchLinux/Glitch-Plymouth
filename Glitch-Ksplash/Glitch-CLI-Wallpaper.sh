@@ -32,20 +32,15 @@ cd /tmp/ksplash/
  
 # Array of files to download
 declare -a FILES=(
-    "glitch-awakening-ksplash-boomerang.gif"
     "glitch-awakening-ksplash.gif"
     "glitch-convergence-ksplash.gif"
+    "glitch-awakening-ksplash-boomerang.gif"
     "glitch-emergence-ksplash-boomerang.gif"
     "glitch-emergence-ksplash.gif"
     "preview-1.png"
     "preview-2.png"
     "preview-3.png"
     "preview-4.png"
-    "preview-5.png"
-    "preview-6.png"
-    "preview-7.png"
-    "preview-8.png"
-    "preview-9.png"
 )
  
 # Base URLs (GitHub raw content)
@@ -132,7 +127,8 @@ qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
     for (var i = 0; i < allDesktops.length; i++) {
         allDesktops[i].wallpaperPlugin = 'org.kde.image';
         allDesktops[i].currentConfigGroup = Array('Wallpaper', 'org.kde.image', 'General');
-        allDesktops[i].writeConfig('Image', 'file:////tmp/ksplash/preview-5.png');
+        allDesktops[i].writeConfig('Image', 'file:////tmp/ksplash/preview-4.png');
     }
 "
 
+sleep 500 && bash /usr/local/bin/Glitch-CLI-Wallpaper.sh
