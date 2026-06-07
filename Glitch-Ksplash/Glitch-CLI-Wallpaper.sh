@@ -6,6 +6,17 @@
 #│ works with .gif's and static image files  │
 #╰───────────────────────────────────────────╯
 
+# Check if qdbus-qt5 is installed
+if ! dpkg -l | grep -q '^ii.*qdbus-qt5'; then
+    echo "qdbus-qt5 not found. Installing..."
+    sudo apt update && sudo apt install qdbus-qt5 -y
+    if [ $? -ne 0 ]; then
+        echo "Failed to install qdbus-qt5. Exiting."
+        exit 1
+    fi
+    echo "qdbus-qt5 installed successfully!"
+fi
+
 # Create directory
 mkdir -p /tmp/ksplash/
 cd /tmp/ksplash/
