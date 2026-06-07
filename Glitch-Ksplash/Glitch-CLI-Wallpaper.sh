@@ -6,6 +6,15 @@
 #│ works with .gif's and static image files  │
 #╰───────────────────────────────────────────╯
 
+# Check internet connectivity
+echo "Checking internet connectivity..."
+if ! ping -c 1 8.8.8.8 &> /dev/null; then
+    echo "No internet connection available. Exiting."
+    exit 1
+fi
+
+echo "Internet connection confirmed!"
+
 # Check if qdbus-qt5 is installed
 if ! dpkg -l | grep -q '^ii.*qdbus-qt5'; then
     echo "qdbus-qt5 not found. Installing..."
