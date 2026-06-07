@@ -1,16 +1,15 @@
+#!/bin/bash
+
 #╭───────────────────────────────────────────╮
 #│ CLI wallpaper changer for dynamic effects │
 #│ Autorun this script on reboots or desktop │
 #│ works with .gif's and static image files  │
 #╰───────────────────────────────────────────╯
 
-#!/bin/bash
-
 # Create directory
 mkdir -p /tmp/ksplash/
-
 cd /tmp/ksplash/
-
+ 
 # Array of files to download
 declare -a FILES=(
     "glitch-awakening-ksplash-boomerang.gif"
@@ -28,11 +27,11 @@ declare -a FILES=(
     "preview-8.png"
     "preview-9.png"
 )
-
-# Base URLs
-GIFS_URL="https://glitchlinux.wtf/Glitch-Ksplash/glitch-ksplash-gif"
-PNGS_URL="https://glitchlinux.wtf/Glitch-Ksplash/glitch-ksplash-png"
-
+ 
+# Base URLs (GitHub raw content)
+GIFS_URL="https://raw.githubusercontent.com/GlitchLinux/Glitch-Plymouth/main/Glitch-Ksplash/glitch-ksplash-gif"
+PNGS_URL="https://raw.githubusercontent.com/GlitchLinux/Glitch-Plymouth/main/Glitch-Ksplash/glitch-ksplash-png"
+ 
 # Check if all files exist
 all_exist=true
 for file in "${FILES[@]}"; do
@@ -41,7 +40,7 @@ for file in "${FILES[@]}"; do
         break
     fi
 done
-
+ 
 # Download if any files are missing
 if [ "$all_exist" = false ]; then
     echo "Files missing. Starting downloads..."
